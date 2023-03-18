@@ -80,8 +80,10 @@ POST https://graph.microsoft.com/beta/applicationTemplates/518e5f48-1fc8-4c48-93
 
 ## Test the connection to the target tenant
 
+Use the **ObjectId** from the instantiate request result
+
 ```
-POST https://graph.microsoft.com/beta/servicePrincipals/10af7279-f1d9-4a65-b65c-a1f653cec4ae/synchronization/jobs/validateCredentials
+POST https://graph.microsoft.com/beta/servicePrincipals/{objectId}/synchronization/jobs/validateCredentials
 {
     "useSavedCredentials": false,
     "templateId": "Azure2Azure",
