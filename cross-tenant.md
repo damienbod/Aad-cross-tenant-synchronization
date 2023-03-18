@@ -1,16 +1,26 @@
 
-At least P1 License is required for this feature 
+
+At least P1 License is required for this feature (both source and target) 
+
+Docs: [Configure cross-tenant synchronization using Microsoft Graph API](https://learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/cross-tenant-synchronization-configure-graph)
+
+
 -------------
 TARGET TENANT
+- Policy.Read.All
+- Policy.ReadWrite.CrossTenantAccess
 -------------
 Source tenant ID: f3301478-744c-453b-833c-1140827c9e67
 Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb
 
+```
 POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
 {
   "tenantId": "f3301478-744c-453b-833c-1140827c9e67"
 }
+```
 
+```
 PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/f3301478-744c-453b-833c-1140827c9e67/identitySynchronization
 {
    "displayName": "companyone",
@@ -19,7 +29,9 @@ PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/f
       "isSyncAllowed": true
     }
 }
+```
 
+```
 PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/f3301478-744c-453b-833c-1140827c9e67
 {
     "inboundTrust": null,
@@ -28,18 +40,26 @@ PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
         "inboundAllowed": true
     }
 }
+```
 
 -------------
 SOURCE TENANT
+- Policy.Read.All
+- Policy.ReadWrite.CrossTenantAccess
+- Application.ReadWrite.All
+- Directory.ReadWrite.All
 -------------
 Source tenant ID: f3301478-744c-453b-833c-1140827c9e67
 Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb
-		
+
+```		
 POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
 {
   "tenantId": "55e8d121-bb42-49c7-a9d8-1c410a7be6cb"
 }
+```
 
+```
 PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/55e8d121-bb42-49c7-a9d8-1c410a7be6cb
 {
     "automaticUserConsentSettings":
@@ -47,14 +67,18 @@ PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
         "outboundAllowed": true
     }
 }
+```
 
+```
 POST https://graph.microsoft.com/beta/applicationTemplates/518e5f48-1fc8-4c48-9387-9fdf28b0dfe7/instantiate
 {
   "displayName": "companyone"
 }
+```
 
 ## Test the connection to the target tenant
 
+```
 POST https://graph.microsoft.com/beta/servicePrincipals/10af7279-f1d9-4a65-b65c-a1f653cec4ae/synchronization/jobs/validateCredentials
 {
     "useSavedCredentials": false,
@@ -70,3 +94,4 @@ POST https://graph.microsoft.com/beta/servicePrincipals/10af7279-f1d9-4a65-b65c-
         }
     ]
 }
+```
