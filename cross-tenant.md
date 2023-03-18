@@ -50,7 +50,7 @@ PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
 
 POST https://graph.microsoft.com/beta/applicationTemplates/518e5f48-1fc8-4c48-9387-9fdf28b0dfe7/instantiate
 {
-  "displayName": "Fabrikam"
+  "displayName": "companyone"
 }
 
 ## Test the connection to the target tenant
