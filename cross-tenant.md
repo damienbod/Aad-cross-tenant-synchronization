@@ -3,9 +3,9 @@ At least P1 License is required for this feature
 -------------
 TARGET TENANT
 -------------
-		
 Source tenant ID: f3301478-744c-453b-833c-1140827c9e67
 Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb
+
 POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
 {
   "tenantId": "f3301478-744c-453b-833c-1140827c9e67"
@@ -32,7 +32,6 @@ PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
 -------------
 SOURCE TENANT
 -------------
-
 Source tenant ID: f3301478-744c-453b-833c-1140827c9e67
 Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb
 		
