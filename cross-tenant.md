@@ -10,8 +10,9 @@ TARGET TENANT
 - Policy.Read.All
 - Policy.ReadWrite.CrossTenantAccess
 -------------
-Source tenant ID: f3301478-744c-453b-833c-1140827c9e67
-Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb
+
+- Source tenant ID: f3301478-744c-453b-833c-1140827c9e67
+- Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb
 
 ```
 POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
@@ -49,8 +50,9 @@ SOURCE TENANT
 - Application.ReadWrite.All
 - Directory.ReadWrite.All
 -------------
-Source tenant ID: f3301478-744c-453b-833c-1140827c9e67
-Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb
+
+- Source tenant ID: f3301478-744c-453b-833c-1140827c9e67
+- Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb
 
 ```		
 POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
