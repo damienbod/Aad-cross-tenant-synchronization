@@ -11,8 +11,8 @@ TARGET TENANT
 - Policy.ReadWrite.CrossTenantAccess
 -------------
 
-- Source tenant ID: f3301478-744c-453b-833c-1140827c9e67
-- Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb
+- Source tenant ID: f3301478-744c-453b-833c-1140827c9e67 (companyone)
+- Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb (companytwo)
 
 ```
 POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
@@ -24,7 +24,7 @@ POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
 ```
 PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/f3301478-744c-453b-833c-1140827c9e67/identitySynchronization
 {
-   "displayName": "companyone",
+   "displayName": "companyone-sync",
    "userSyncInbound": 
     {
       "isSyncAllowed": true
@@ -51,8 +51,8 @@ SOURCE TENANT
 - Directory.ReadWrite.All
 -------------
 
-- Source tenant ID: f3301478-744c-453b-833c-1140827c9e67
-- Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb
+- Source tenant ID: f3301478-744c-453b-833c-1140827c9e67 (companyone)
+- Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb (companytwo)
 
 ```		
 POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
@@ -74,7 +74,7 @@ PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
 ```
 POST https://graph.microsoft.com/beta/applicationTemplates/518e5f48-1fc8-4c48-9387-9fdf28b0dfe7/instantiate
 {
-  "displayName": "companyone"
+  "displayName": "companytwo-sync"
 }
 ```
 
