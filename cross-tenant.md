@@ -11,20 +11,20 @@ TARGET TENANT
 - Policy.ReadWrite.CrossTenantAccess
 -------------
 
-- Source tenant ID: f3301478-744c-453b-833c-1140827c9e67 (companyone)
-- Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb (companytwo)
+- Source tenant ID: {source-tenant-guid} (companyone)
+- Target tenant ID: {target-tenant-guid} (companytwo)
 
 ```
 POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
 {
-  "tenantId": "f3301478-744c-453b-833c-1140827c9e67"
+  "tenantId": "{source-tenant-guid}"
 }
 ```
 
 ```
-PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/f3301478-744c-453b-833c-1140827c9e67/identitySynchronization
+PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{source-tenant-guid}/identitySynchronization
 {
-   "displayName": "companyone-sync",
+   "displayName": "from-companyone-sync",
    "userSyncInbound": 
     {
       "isSyncAllowed": true
@@ -33,7 +33,7 @@ PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/f
 ```
 
 ```
-PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/f3301478-744c-453b-833c-1140827c9e67
+PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{source-tenant-guid}
 {
     "inboundTrust": null,
     "automaticUserConsentSettings":
@@ -51,18 +51,18 @@ SOURCE TENANT
 - Directory.ReadWrite.All
 -------------
 
-- Source tenant ID: f3301478-744c-453b-833c-1140827c9e67 (companyone)
-- Target tenant ID: 55e8d121-bb42-49c7-a9d8-1c410a7be6cb (companytwo)
+- Source tenant ID: {source-tenant-guid} (companyone)
+- Target tenant ID: {target-tenant-guid} (companytwo)
 
 ```		
 POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
 {
-  "tenantId": "55e8d121-bb42-49c7-a9d8-1c410a7be6cb"
+  "tenantId": "{target-tenant-guid}"
 }
 ```
 
 ```
-PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/55e8d121-bb42-49c7-a9d8-1c410a7be6cb
+PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{target-tenant-guid}
 {
     "automaticUserConsentSettings":
     {
@@ -74,7 +74,7 @@ PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners
 ```
 POST https://graph.microsoft.com/beta/applicationTemplates/518e5f48-1fc8-4c48-9387-9fdf28b0dfe7/instantiate
 {
-  "displayName": "companytwo-sync"
+  "displayName": "to-companytwo-sync"
 }
 ```
 
