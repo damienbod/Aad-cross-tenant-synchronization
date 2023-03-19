@@ -4,9 +4,7 @@
 
 Implementing Azure AD cross-tenant synchronization. The feature makes it really easy to implement the technical part of synchronization between different Azure AD tenants.
 
-Code: https://github.com/damienbod/Aad-cross-tenant-synchronization
-
-Requirements
+## Requirements
 
 To use this feature, both the source tenant and the target tenant require at least a P1 Azure AD license. The administrator and the application used to implement the feature needs to have the delegated authorization.
 
