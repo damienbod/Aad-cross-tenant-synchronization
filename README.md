@@ -1,6 +1,6 @@
 # Azure AD cross tenant synchronization
 
-[blog](https://damienbod.com)
+[blog](https://damienbod.com/2023/03/27/azure-ad-cross-tenant-synchronization/)
 
 Implementing Azure AD cross-tenant synchronization. The feature makes it really easy to implement the technical part of synchronization between different Azure AD tenants.
 
